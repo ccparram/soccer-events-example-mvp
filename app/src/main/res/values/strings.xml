@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Soccer Events</string>
     <string name="title_item_detail">Item Detail</string>
+
+    <!--> API Errors </!-->
+    <string name="error_api_bad_request">Bad request</string>
+    <string name="error_api_internal_error">API internal error</string>
+    <string name="error_api_unknown">Unknown error, we\'ll resolve this soon</string>
+    <string name="error_api_lost_connection">Lost Connection, please check your internet connection</string>
+
+    <string name="error_api_sia_service_unavailable">Bad request</string>
+    <string name="error_api_login_bad_request">@string/error_api_bad_request</string>
 </resources>
