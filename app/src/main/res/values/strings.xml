@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Soccer Events</string>
+    <string name="app_name">Soccer Info</string>
     <string name="title_item_detail">Team detail</string>
 
     <!--> API Errors </!-->

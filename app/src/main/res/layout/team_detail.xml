@@ -47,8 +47,10 @@
         android:id="@+id/img_team_detail_badge"
         android:layout_width="@dimen/size_img_detail_team_badge"
         android:layout_height="@dimen/size_img_detail_team_badge"
+        android:layout_marginTop="@dimen/margin_vertical_small"
+        android:layout_marginEnd="@dimen/margin_horizontal_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/txt_team_detail_year" />
 
     <TextView
         android:id="@+id/txt_team_detail_next_events_label"
@@ -82,8 +84,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/margin_vertical_small"
-        app:layout_constraintTop_toBottomOf="@+id/rcv_team_detail_events"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintTop_toBottomOf="@+id/rcv_team_detail_events">
 
         <ImageView
             android:id="@+id/img_team_detail_facebook"
@@ -97,6 +98,7 @@
             android:id="@+id/img_team_detail_twitter"
             android:layout_width="@dimen/size_img_social_media"
             android:layout_height="@dimen/size_img_social_media"
+            android:layout_marginStart="@dimen/margin_horizontal"
             android:layout_marginEnd="@dimen/margin_horizontal"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_twitter" />
@@ -106,10 +108,8 @@
             android:layout_width="@dimen/size_img_social_media"
             android:layout_height="@dimen/size_img_social_media"
             android:visibility="gone"
-            app:srcCompat="@drawable/ic_instagram"
-            android:clickable="true"
-            android:focusable="true"
-            android:autoLink="web" />
+            android:layout_marginStart="@dimen/margin_horizontal"
+            app:srcCompat="@drawable/ic_instagram" />
     </LinearLayout>
 
     <TextView
@@ -118,8 +118,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/team_detail_website"
-        android:visibility="invisible"
-        android:autoLink="web"
+        android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/ly_team_detail_social_media"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,8 @@ import butterknife.ButterKnife;
 
 public class TeamListActivity extends BaseActivity implements TeamListMvpView, TeamListAdapter.OnItemClickListener {
 
+    private final String LEAGUE_NAME = "Spanish_la_liga";
+
     @Inject
     TeamListMvpPresenter<TeamListMvpView, TeamListMvpInteractor> presenter;
 
@@ -62,7 +64,7 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
         rcvTeamList.setHasFixedSize(true);
         rcvTeamList.setAdapter(adapter);
 
-        presenter.onViewPrepared("Spanish_la_liga");
+        presenter.onViewPrepared(LEAGUE_NAME);
     }
 
     @Override
