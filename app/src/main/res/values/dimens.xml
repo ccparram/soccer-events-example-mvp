@@ -4,4 +4,15 @@
     <dimen name="app_bar_height">200dp</dimen>
     <dimen name="item_width">200dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="margin_horizontal_small">8dp</dimen>
+    <dimen name="margin_vertical_small">8dp</dimen>
+
+    <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="margin_vertical">16dp</dimen>
+
+    <dimen name="margin_horizontal_big">32dp</dimen>
+    <dimen name="margin_vertical_big">32dp</dimen>
+
+    <dimen name="size_img_item_team">50dp</dimen>
 </resources>
