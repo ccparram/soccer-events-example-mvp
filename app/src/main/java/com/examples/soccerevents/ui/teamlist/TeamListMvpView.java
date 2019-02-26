@@ -10,4 +10,6 @@ public interface TeamListMvpView extends MvpView {
 
     void updateTeams(List<Team>teams);
 
+    void showTeamDetail(Team team);
+
 }

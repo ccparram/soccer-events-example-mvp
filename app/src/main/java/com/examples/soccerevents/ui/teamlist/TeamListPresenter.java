@@ -1,5 +1,6 @@
 package com.examples.soccerevents.ui.teamlist;
 
+import com.examples.soccerevents.data.database.model.Team;
 import com.examples.soccerevents.ui.base.BasePresenter;
 import com.examples.soccerevents.utils.rx.SchedulerProvider;
 
@@ -37,5 +38,12 @@ public class TeamListPresenter<V extends TeamListMvpView, I extends TeamListMvpI
                     getMvpView().hideLoading();
                     handleApiError(throwable);
                 }));
+    }
+
+    @Override
+    public void onClickItemTeam(Team team) {
+        if (isViewAttached()) {
+            getMvpView().showTeamDetail(team);
+        }
     }
 }

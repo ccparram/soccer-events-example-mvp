@@ -1,10 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_detail"
-    style="?android:attr/textAppearanceLarge"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
-    tools:context=".TeamDetailFragment" />
+    android:padding="@dimen/margin_horizontal"
+    tools:context=".ui.teamdetail.TeamDetailActivity">
+
+    <ImageView
+        android:id="@+id/img_team_detail_jersey"
+        android:layout_width="@dimen/size_img_detail_team_jersey"
+        android:layout_height="@dimen/size_img_detail_team_jersey"
+        android:layout_marginBottom="@dimen/margin_vertical_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_team_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        app:layout_constraintEnd_toStartOf="@+id/img_team_detail_badge"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/img_team_detail_jersey"
+        app:layout_constraintTop_toTopOf="@+id/img_team_detail_jersey" />
+
+    <TextView
+        android:id="@+id/txt_team_detail_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/txt_team_detail_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_team_detail_name" />
+
+    <TextView
+        android:id="@+id/txt_team_detail_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_team_detail_jersey" />
+
+    <ImageView
+        android:id="@+id/img_team_detail_badge"
+        android:layout_width="@dimen/size_img_detail_team_badge"
+        android:layout_height="@dimen/size_img_detail_team_badge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_team_detail_next_events_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:text="@string/team_detail_next_events"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/txt_team_detail_description"
+        app:layout_constraintTop_toBottomOf="@+id/txt_team_detail_description" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_team_detail_events"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_team_detail_next_events_label"
+        tools:context=".ui.teamdetail.TeamDetailActivity"
+        tools:listitem="@layout/item_team" />
+
+    <LinearLayout
+        android:id="@+id/ly_team_detail_social_media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/margin_vertical_small"
+        app:layout_constraintTop_toBottomOf="@+id/rcv_team_detail_events"
+        tools:layout_editor_absoluteX="16dp">
+
+        <ImageView
+            android:id="@+id/img_team_detail_facebook"
+            android:layout_width="@dimen/size_img_social_media"
+            android:layout_height="@dimen/size_img_social_media"
+            android:layout_marginEnd="@dimen/margin_horizontal"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_facebook" />
+
+        <ImageView
+            android:id="@+id/img_team_detail_twitter"
+            android:layout_width="@dimen/size_img_social_media"
+            android:layout_height="@dimen/size_img_social_media"
+            android:layout_marginEnd="@dimen/margin_horizontal"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_twitter" />
+
+        <ImageView
+            android:id="@+id/img_team_detail_instagram"
+            android:layout_width="@dimen/size_img_social_media"
+            android:layout_height="@dimen/size_img_social_media"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_instagram"
+            android:clickable="true"
+            android:focusable="true"
+            android:autoLink="web" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_team_detail_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/team_detail_website"
+        android:visibility="invisible"
+        android:autoLink="web"
+        app:layout_constraintTop_toBottomOf="@+id/ly_team_detail_social_media"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

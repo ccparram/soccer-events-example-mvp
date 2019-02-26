@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Soccer Events</string>
-    <string name="title_item_detail">Item Detail</string>
+    <string name="title_item_detail">Team detail</string>
 
     <!--> API Errors </!-->
     <string name="error_api_bad_request">Bad request</string>
@@ -10,4 +10,8 @@
 
     <string name="error_api_sia_service_unavailable">Bad request</string>
     <string name="error_api_login_bad_request">@string/error_api_bad_request</string>
+
+    <!--> Team Detail Fragment </!-->
+    <string name="team_detail_next_events">Next events:</string>
+    <string name="team_detail_website">Website</string>
 </resources>

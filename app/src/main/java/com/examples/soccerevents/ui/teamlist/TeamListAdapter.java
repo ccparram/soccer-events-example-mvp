@@ -83,12 +83,12 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.TeamLi
             }
 
             itemView.setOnClickListener((view) -> {
-                listener.onItemClick(team.getId());
+                listener.onItemClick(team);
             });
         }
     }
 
     public interface OnItemClickListener {
-        void onItemClick(String teamId);
+        void onItemClick(Team team);
     }
 }

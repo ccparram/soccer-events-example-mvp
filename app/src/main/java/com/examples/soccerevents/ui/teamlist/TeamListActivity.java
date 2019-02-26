@@ -1,12 +1,14 @@
 package com.examples.soccerevents.ui.teamlist;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.examples.soccerevents.R;
 import com.examples.soccerevents.data.database.model.Team;
 import com.examples.soccerevents.ui.base.BaseActivity;
-import com.orhanobut.logger.Logger;
+import com.examples.soccerevents.ui.teamdetail.TeamDetailActivity;
+import com.examples.soccerevents.ui.teamdetail.TeamDetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,7 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        if (findViewById(R.id.item_detail_container) != null) {
+        if (findViewById(R.id.team_detail_container) != null) {
             mTwoPane = true;
         }
         setUp();
@@ -68,12 +70,25 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
     }
 
     @Override
-    public void onItemClick(String teamId) {
-        Logger.e("teamId: " + teamId);
+    public void onItemClick(Team team) {
+        presenter.onClickItemTeam(team);
     }
 
     @Override
     public void updateTeams(List<Team> teams) {
         adapter.addItems(teams);
+    }
+
+    @Override
+    public void showTeamDetail(Team team) {
+
+        if (mTwoPane) {
+
+        } else {
+
+            Intent intent = new Intent(this, TeamDetailActivity.class);
+            intent.putExtra(TeamDetailFragment.ARG_TEAM, team);
+            startActivity(intent);
+        }
     }
 }

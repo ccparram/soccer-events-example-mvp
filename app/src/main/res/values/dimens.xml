@@ -14,5 +14,10 @@
     <dimen name="margin_horizontal_big">32dp</dimen>
     <dimen name="margin_vertical_big">32dp</dimen>
 
-    <dimen name="size_img_item_team">50dp</dimen>
+    <dimen name="size_img_item_team_badge">50dp</dimen>
+
+    <dimen name="size_img_detail_team_jersey">100dp</dimen>
+    <dimen name="size_img_detail_team_badge">50dp</dimen>
+
+    <dimen name="size_img_social_media">40dp</dimen>
 </resources>

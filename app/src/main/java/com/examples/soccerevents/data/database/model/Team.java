@@ -1,8 +1,11 @@
 package com.examples.soccerevents.data.database.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Team {
+public class Team implements Parcelable {
 
     @SerializedName("idTeam")
     private String id;
@@ -24,8 +27,6 @@ public class Team {
 
     @SerializedName("strTeamJersey")
     private String jersey;
-
-//  TODO: Add event list
 
     @SerializedName("strWebsite")
     private String website;
@@ -96,4 +97,51 @@ public class Team {
     public String getInstagram() {
         return instagram;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.id);
+        dest.writeString(this.name);
+        dest.writeString(this.stadium);
+        dest.writeString(this.badgeUrl);
+        dest.writeString(this.description);
+        dest.writeString(this.foundationYear);
+        dest.writeString(this.jersey);
+        dest.writeString(this.website);
+        dest.writeString(this.facebook);
+        dest.writeString(this.twitter);
+        dest.writeString(this.instagram);
+    }
+
+    protected Team(Parcel in) {
+        this.id = in.readString();
+        this.name = in.readString();
+        this.stadium = in.readString();
+        this.badgeUrl = in.readString();
+        this.description = in.readString();
+        this.foundationYear = in.readString();
+        this.jersey = in.readString();
+        this.website = in.readString();
+        this.facebook = in.readString();
+        this.twitter = in.readString();
+        this.instagram = in.readString();
+    }
+
+    public static final Parcelable.Creator<Team> CREATOR = new Parcelable.Creator<Team>() {
+        @Override
+        public Team createFromParcel(Parcel source) {
+            return new Team(source);
+        }
+
+        @Override
+        public Team[] newArray(int size) {
+            return new Team[size];
+        }
+    };
 }
