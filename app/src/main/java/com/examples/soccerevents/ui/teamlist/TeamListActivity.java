@@ -28,6 +28,8 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
 
     @BindView(R.id.rcv_team_list)
     RecyclerView rcvTeamList;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     private TeamListAdapter adapter = new TeamListAdapter(new ArrayList<>(), this);
 
@@ -44,7 +46,6 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
         setUnBinder(ButterKnife.bind(this));
         presenter.onAttach(TeamListActivity.this);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
@@ -84,9 +85,11 @@ public class TeamListActivity extends BaseActivity implements TeamListMvpView, T
     public void showTeamDetail(Team team) {
 
         if (mTwoPane) {
-
+            TeamDetailFragment fragment = TeamDetailFragment.newInstance(team);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.team_detail_container, fragment)
+                    .commit();
         } else {
-
             Intent intent = new Intent(this, TeamDetailActivity.class);
             intent.putExtra(TeamDetailFragment.ARG_TEAM, team);
             startActivity(intent);
